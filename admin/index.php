@@ -143,7 +143,7 @@ if(!isset($_SESSION['admin'])) {
 								</div>
 							</a>
 							<div class="dropdown-menu dropdown-menu-right">	
-								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="javascript:;"><i
+								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" onclick="confirm('Yakin mau logout?')" href="logout.php"><i
 										class="bx bx-power-off"></i><span>Logout</span></a>
 							</div>
 						</li>

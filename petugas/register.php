@@ -12,7 +12,7 @@ session_start();
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Login Admin</title>
+	<title>Register Petugas</title>
 	<!--favicon-->
 	<link rel="icon" href="../assets/images/favicon-32x32.png" type="image/png" />
 	<!-- loader-->
@@ -66,7 +66,7 @@ session_start();
 									<div class="text-center">
 										<!-- Logo -->
 										<img src="../assets/images/logo-icon.png" width="80" alt="Logo">
-										<h3 class="mt-4 font-weight-bold">Welcome Back, Admin!</h3>
+										<h3 class="mt-4 font-weight-bold">Silahkan Daftar Akun!</h3>
 									</div>
 
 									<form method="POST" action="">
@@ -80,16 +80,18 @@ session_start();
 											<input type="password" name="Password" class="form-control" placeholder="Masukkan Password Anda :" />
 										</div>
 
-										<div class="form-row">
-											<div class="form-group col">
-												<div class="custom-control custom-switch">
-													<input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-													<label class="custom-control-label" for="customSwitch1">Remember Me</label>
-												</div>
-											</div>
+										<div class="form-group mt-4">
+											<label>Nama Lengkap</label>
+											<input type="text" name="nama_petugas" class="form-control" placeholder="Masukkan Nama Lengkap Anda :" />
 										</div>
+
+										<div class="form-group mt-4">
+											<label>Nomor Telepon</label>
+											<input type="text" name="telp" class="form-control" placeholder="Masukkan Nomor Telepon Anda :" />
+										</div>
+
 										<div class="btn-group mt-3 w-100">
-											<button type="submit" name="login" class="btn btn-primary btn-block">Log In</button>
+											<button type="submit" name="register" class="btn btn-primary btn-block">Register</button>
 											<button type="button" class="btn btn-primary"><i class="lni lni-arrow-right"></i></button>
 										</div>
 										<hr>
@@ -98,7 +100,7 @@ session_start();
 							</div>
 							<!-- Image Section -->
 							<div class="col-lg-6">
-								<img src="../assets/images/login-images/login-frent-img.jpg" class="card-img img-section h-100" alt="...">
+								<img src="../assets/images/login-images/register-frent-img.jpg" class="card-img img-section h-100" alt="...">
 							</div>
 						</div>
 						<!--end row-->
@@ -113,31 +115,6 @@ session_start();
 </html>
 
 <?php
-if (isset($_POST['login'])) {
-    $username = trim($_POST['Username']);
-    $password = trim($_POST['Password']);
 
-    // Validasi input kosong
-    if (empty($username)) {
-        header('Location: login.php?errorusername=Username wajib diisi!');
-        exit();
-    }
-    if (empty($password)) {
-        header('Location: login.php?errorpassword=Password wajib diisi!');
-        exit();
-    }
-
-    // Query untuk login
-    $query = mysqli_query($koneksi, "SELECT * FROM petugas WHERE username='$username' AND password='$password' AND level='admin'") or die(mysqli_error($koneksi)); 
-
-    $cek = mysqli_num_rows($query);
-
-    if ($cek == 1) {
-        $_SESSION['admin'] = mysqli_fetch_assoc($query);
-        echo "<script>alert('Login Berhasil'); window.location = 'index.php';</script>";
-    } else {
-        echo "<script>alert('Login Gagal'); window.location = 'login.php';</script>";
-    }
-}
 ?>
 
