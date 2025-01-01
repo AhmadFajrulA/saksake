@@ -77,13 +77,12 @@
     <div class="card radius-15">
         <div class="card-body">
             <div class="card-title">
-                <h4 class="mb-0">Selamat Datang, <?php echo $_SESSION['admin']['nama_petugas']; ?></h4>
+                <h4 class="mb-0">Selamat Datang, <?php echo $_SESSION['petugas']['nama_petugas']; ?></h4>
             </div>
             <hr/>
-            <p>Nama : <?php echo $_SESSION['admin']['nama_petugas']; ?></p>
-            <p>Username : <?php echo $_SESSION['admin']['username']; ?></p>
-            <p>Level : <?php echo strtoupper($_SESSION['admin']['level']); ?></p>
-
+            <p>Nama : <?php echo $_SESSION['petugas']['nama_petugas']; ?></p>
+            <p>Username : <?php echo $_SESSION['petugas']['username']; ?></p>
+            <p>Level : <?php echo strtoupper($_SESSION['petugas']['level']); ?></p>
         </div>
     </div>
 </div>

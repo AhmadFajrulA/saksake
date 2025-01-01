@@ -168,7 +168,7 @@
 <?php 
 
 if (isset($_POST['tolak'])) {
-    $id_petugas = $_SESSION['admin']['id_petugas']; // Perbaikan case-sensitive
+    $id_petugas = $_SESSION['petugas']['id_petugas']; // Perbaikan case-sensitive
     $tgl_tanggapan = date('Y-m-d');
     $id_pengaduan = $_POST['id_pengaduan'];
     $tanggapan = $_POST['tanggapan']; // Perbaikan nama variabel

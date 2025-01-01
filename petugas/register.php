@@ -116,5 +116,24 @@ session_start();
 
 <?php
 
+   if(isset($_POST['register'])) {
+	    $nama_petugas = $_POST['nama_lengkap'];
+		$telp = $_POST['telp'];
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$level = 'petugas';
+
+		$query_register = mysqli_query($koneksi, "INSERT INTO petugas(nama_petugas, username, password, telp, level) 
+		                VALUES('$nama_petugas', '$telp', '$username', '$password', $level)") or die (mysqli_error($koneksi));
+
+		if($query_register){
+			echo "<script>alert('berhasil daftar akun! Silahkan Login'); </script>";
+			echo "<script>document.location.href='login.php'; </script>";
+		} else {
+			echo "<script>alert('Gagal daftar akun! Silahkan Coba Lagi'); </script>";
+			echo "<script>document.location.href='register.php'; </script>";
+		}
+   }
+
 ?>
 

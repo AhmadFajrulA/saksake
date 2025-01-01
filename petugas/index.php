@@ -3,12 +3,7 @@ include'../koneksi.php';
 
 session_start();
 
-// if(!isset($_SESSION['petugas'])) {
-// 	echo "<script>alert('Anda belum login! Mohon login terlebih dahulu');</script>";
-// 	echo "<script>window.location.href = 'login.php';</script>";
-// }
-
-if(!isset($_SESSION['admin'])) {
+if(!isset($_SESSION['Petugas'])) {
     echo "<script>alert('Anda belum login! Mohon login terlebih dahulu');</script>";
     echo "<script>window.location.href = 'login.php';</script>";
 }
@@ -20,7 +15,7 @@ if(!isset($_SESSION['admin'])) {
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Dashboard - Admin</title>
+	<title>Dashboard - Petugas</title>
 	<!--favicon-->
 	<link rel="icon" href="../assets/images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
@@ -52,7 +47,7 @@ if(!isset($_SESSION['admin'])) {
 					<img src="../assets/images/logo-icon.png" class="logo-icon-2" alt="" />
 				</div>
 				<div>
-					<h4 class="logo-text">Admin</h4>
+					<h4 class="logo-text">Petugas</h4>
 				</div>
 				<a href="javascript:;" class="toggle-btn ml-auto"> <i class="bx bx-menu"></i>
 				</a>
@@ -69,22 +64,12 @@ if(!isset($_SESSION['admin'])) {
 				</li>
 
 				<li>
-					<a href="?halaman=petugas">
-						<div class="parent-icon icon-color-5"><i class="bx bx-group"></i>
-						</div>
-						<div class="menu-title">Petugas</div>
-					</a>
-				</li>
-
-				<li>
 					<a href="?halaman=masyarakat">
 						<div class="parent-icon icon-color-3"><i class="bx bx-user"></i>
 						</div>
 						<div class="menu-title">Masyarakat</div>
 					</a>
 				</li>
-
-
 			
 				<li>
 					<a class="has-arrow" href="javascript:;">
@@ -102,14 +87,6 @@ if(!isset($_SESSION['admin'])) {
 						<li> <a href="?halaman=pengaduanbatal"><i class="bx bx-right-arrow-alt"></i>Pengaduan Batal</a>
 						</li>
 					</ul>
-				</li>
-
-				<li>
-					<a href="?halaman=laporan">
-						<div class="parent-icon icon-color-5"><i class="bx bx-file-blank"></i>
-						</div>
-						<div class="menu-title">Laporan</div>
-					</a>
 				</li>
 
 			</ul>
@@ -136,7 +113,7 @@ if(!isset($_SESSION['admin'])) {
 							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-toggle="dropdown">
 								<div class="media user-box align-items-center">
 									<div class="media-body user-info">
-										<p class="user-name mb-0"><?php echo $_SESSION['admin']['nama_petugas']; ?></p>
+										<p class="user-name mb-0"><?php echo $_SESSION['petugas']['nama_petugas']; ?></p>
 										<p class="designattion mb-0">Available</p>
 									</div>
 									<img src="https://via.placeholder.com/110x110" class="user-img" alt="">
@@ -165,12 +142,6 @@ if(!isset($_SESSION['admin'])) {
 
 						if($_GET['halaman']=="petugas"){
 							include 'petugas/petugas.php';
-						} elseif($_GET['halaman']=="tambahpetugas"){
-							include 'petugas/tambahpetugas.php';
-						} elseif($_GET['halaman']=="editpetugas"){
-							include 'petugas/editpetugas.php';
-						} elseif($_GET['halaman']=="hapuspetugas"){
-							include 'petugas/hapuspetugas.php';
 						} elseif($_GET['halaman']=="pengaduanmasuk"){
 							include 'pengaduan/pengaduanmasuk.php';
 						} elseif($_GET['halaman']=="pengaduanproses"){
@@ -179,8 +150,6 @@ if(!isset($_SESSION['admin'])) {
 							include 'pengaduan/pengaduanselesai.php';
 						} elseif($_GET['halaman']=="pengaduandetail"){
 							include 'pengaduan/pengaduandetail.php';
-						} elseif($_GET['halaman']=="laporan"){
-							include 'laporan.php';
 						} elseif($_GET['halaman']=="masyarakat"){
 							include 'masyarakat.php';
 						} elseif($_GET['halaman']=="pengaduanbatal"){

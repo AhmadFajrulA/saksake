@@ -12,7 +12,7 @@ session_start();
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Login Admin</title>
+	<title>Login Petugas</title>
 	<!--favicon-->
 	<link rel="icon" href="../assets/images/favicon-32x32.png" type="image/png" />
 	<!-- loader-->
@@ -66,7 +66,7 @@ session_start();
 									<div class="text-center">
 										<!-- Logo -->
 										<img src="../assets/images/logo-icon.png" width="80" alt="Logo">
-										<h3 class="mt-4 font-weight-bold">Welcome Back, Admin!</h3>
+										<h3 class="mt-4 font-weight-bold">Welcome Back, Petugas!</h3>
 									</div>
 
 									<form method="POST" action="">
@@ -91,6 +91,9 @@ session_start();
 										<div class="btn-group mt-3 w-100">
 											<button type="submit" name="login" class="btn btn-primary btn-block">Log In</button>
 											<button type="button" class="btn btn-primary"><i class="lni lni-arrow-right"></i></button>
+										</div>
+										<div class="card-footer">
+										<p>Belum Punya Akun?<a href="register.php">Silahkan Register</a></p>
 										</div>
 										<hr>
 									</form>
@@ -128,12 +131,12 @@ if (isset($_POST['login'])) {
     }
 
     // Query untuk login
-    $query = mysqli_query($koneksi, "SELECT * FROM petugas WHERE username='$username' AND password='$password' AND level='admin'") or die(mysqli_error($koneksi)); 
+    $query = mysqli_query($koneksi, "SELECT * FROM petugas WHERE username='$username' AND password='$password' AND level='petugas'") or die(mysqli_error($koneksi)); 
 
     $cek = mysqli_num_rows($query);
 
     if ($cek == 1) {
-        $_SESSION['admin'] = mysqli_fetch_assoc($query);
+        $_SESSION['Petugas'] = mysqli_fetch_assoc($query);
         echo "<script>alert('Login Berhasil'); window.location = 'index.php';</script>";
     } else {
         echo "<script>alert('Login Gagal'); window.location = 'login.php';</script>";

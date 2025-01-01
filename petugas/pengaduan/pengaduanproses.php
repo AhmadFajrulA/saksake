@@ -62,7 +62,7 @@
 											<p>Jika Tanggapi Laporan ini, maka laporan akan dianggap selesai.</p>
 											<form action="" method="post">
 												<input type="hidden" name="id_pengaduan" value="<?php echo $data_pengaduan['id_pengaduan'] ?>">
-												<input type="hidden" name="id_petugas" value="<?php echo $_SESSION['admin']['id_petugas'] ?>">
+												<input type="hidden" name="id_petugas" value="<?php echo $_SESSION['petugas']['id_petugas'] ?>">
 												<div class="form-group">
 													<label for="">NIK:</label>
 													<input type="text" readonly class="form-control" value="<?php echo $data_pengaduan['nik'] ?>">
@@ -131,7 +131,7 @@
 
 <?php 
 if (isset($_POST['tolak'])) {
-	$id_petugas = $_SESSION['admin']['id_petugas'];
+	$id_petugas = $_SESSION['petugas']['id_petugas'];
 	$tgl_tanggapan = date('Y-m-d');
 	$id_pengaduan = $_POST['id_pengaduan'];
 	$tanggapan = $_POST['alasan_batal']; // Menggunakan alasan_batal, bukan tanggapan
@@ -148,7 +148,7 @@ if (isset($_POST['tolak'])) {
 if (isset($_POST['tanggapi'])) {
 	$tgl_tanggapan = date('Y-m-d');
 	$id_pengaduan = $_POST['id_pengaduan'];
-	$id_petugas = $_SESSION['admin']['id_petugas'];
+	$id_petugas = $_SESSION['petugas']['id_petugas'];
 	$tanggapan = $_POST['tanggapan'];
 
 	// Insert tanggapan untuk pengaduan
